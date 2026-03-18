@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="qrcode.css">
+</head>
+<body>
+    
+    <div class="body">
+        <img src="08ec6ba5b7eacae68cc954026a1cd143.jpg" alt="img" class="image1">
+        <div class="body-container">
+            <div class="app">
+                <img src="gift-line.svg" width="30px" alt="">
+                <p>CHECK THE PROGRESS</p>
+            </div>
+            <p>Scan QR code or enter customer name to show appreciation</p>
+            <input type="text" name="" id="inpt" placeholder="Enter your name">
+            <div class="IMGBOX" id="imgBox">
+                <img src="" id="qrImage" alt="">
+            </div>
+            <button onclick="generateQR()">Generate QR Code</button>
+            <button onclick="downloadQR()">Download QR Code</button>
+        </div>
+    </div>
+    <script src="qrcode.js"></script>
+</body>
+</html>

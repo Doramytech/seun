@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Mark</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Attendance Marking System</h1>
+
+    <form id="attendanceForm">
+      <label for="studentId">Student ID</label>
+      <input type="text" id="studentId" placeholder="Enter your ID" required />
+
+      <label for="studentName">Name</label>
+      <input type="text" id="studentName" placeholder="Enter your name" required />
+
+      <label for="Date">Date</label>
+      <input type="date" id="date" required>
+
+      <label for="Time">Time</label>
+      <input type="time" id="time">
+
+      <label for="status">Status</label>
+      <select id="status">
+        <option value="present">Present</option>
+        <option value="absent">Absent</option>
+        <option value="late">Late</option>
+      </select>
+
+      <button type="submit" id="markBtn">Mark Attendance</button>
+    </form>
+
+    <div id="successMessage" class="success">Attendance marked successfully!</div>
+  </div>
+
+  <script type="module" src="dashboard.js" defer></script>
+</body>
+</html>

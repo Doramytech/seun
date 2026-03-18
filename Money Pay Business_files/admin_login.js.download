@@ -1,0 +1,78 @@
+var loginLatitude = 0;
+var loginLongitude = 0;
+
+$(document).ready( function() {
+	initGeolocation();
+	
+});
+
+function initGeolocation() {
+	if (navigator.geolocation) {
+		// Call getCurrentPosition with success and failure callbacks
+		navigator.geolocation.getCurrentPosition(success, fail);
+	}
+	else {
+		alert("Sorry, your browser does not support geolocation services.");
+	}
+}
+
+function success(position) {
+	loginLongitude = position.coords.longitude
+	loginLatitude = position.coords.latitude;
+	$("#txtLoginLocation").val(loginLatitude + "," + loginLongitude);
+}
+
+function fail() {
+	swal("Error!!!", "Please allow location permission.", "error");
+}
+ 
+$(document).on("click", ".btnResendOTP", function(){
+	$("#txtOTP").val("");
+	$(".otpField").hide();
+	$(".checkOTPTime").click();
+});
+
+$(document).on("click", ".checkOTPTime", function(){
+	if($("#frmLogin").valid()) {
+		
+		if(loginLatitude == 0 || loginLongitude == 0) {
+			swal("Error!!!", "Please reload page and allow location permission.", "error");
+			return false;
+		}
+		
+		if($("#txtOTP").val() == "") {
+			loginURL = LOGIN_MODE == 1 ? SITEURL + "checkOTP" : SITEURL + CONTROLLERNAME + "/checkOTP";
+			$.ajax({
+	    		url: loginURL,
+	    		type: 'POST',
+	    		data: {txtUsername: $("#txtUsername").val(), txtPassword: $("#txtPassword").val(), _csrf : $('input[name="_csrf"]').val()},
+	    		beforeSend : function(){
+	    			showBlockUI();
+	    		},
+	    		success: function(response) {
+	    			$.unblockUI();
+	    			jsArray = $.parseJSON(response);
+	    			if(jsArray.status === "OTP") {
+	    				swal("Info!!!", "Please enter OTP sent on mobile/email/whatsapp.", "info");
+	    				$(".otpField").show();
+	    			} else if(jsArray.status === "success") {
+	    				$(".checkOTPTime").parents("form").submit();
+	    			} else {
+	    				showResponse(response);
+	    				return false;
+	    			}
+				}
+			});
+		} else {
+			$(".checkOTPTime").parents("form").submit();
+		}
+	}		
+});
+
+$(document).on("click", ".toggle-password", function(){
+	if($(".togglePassword").prop("type") == "password") {
+		$(".togglePassword").prop("type", "text");
+	} else {
+		$(".togglePassword").prop("type", "password");
+	}
+});

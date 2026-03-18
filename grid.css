@@ -1,0 +1,12 @@
+.container{
+    display: grid;
+    gap: 20px;
+    /* grid-template-columns: 200px 400px 200px; */
+    /* grid-template-rows: 100px 100px 100px; */
+    grid-column: 20px 30px;
+}
+.box1{
+    border: 1px solid black;
+    width: 200px;
+    height: 300px;
+}

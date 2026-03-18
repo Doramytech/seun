@@ -1,0 +1,792 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+:root {
+  --primary: orange;
+  --dark: rgb(0, 0, 34);
+  --light: white;
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  z-index: 10000;
+}
+
+.logo h1 {
+  color: var(--primary);
+}
+
+#menu {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* NAV */
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header-content a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: bold;
+}
+
+.header-content a:hover {
+  color: var(--primary);
+}
+
+/* .btn {
+  background: var(--primary);
+  padding: 10px 25px;
+  color: white;
+} */
+#btn{
+     background: var(--primary);
+  padding: 10px 25px;
+  color: white;
+  border: none;
+  transition: .6s;
+}
+#btn a:hover{
+    color: white;
+    transform: scaleX(1.7);
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background: white;
+  min-width: 160px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px;
+  display: block;
+}
+.dropdown-content.show {
+     display: block;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding-top: 70px;
+  background:
+    linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.8)),
+    url("images/grilled-beef-steak-with-fries-grilled-tomato-pepper-sauces.jpg")
+    center/cover no-repeat;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 6%;
+  gap: 30px;
+}
+
+.text h1 {
+  font-size: 4rem;
+  color: white;
+}
+
+.text p {
+  color: white;
+  margin: 20px 0;
+}
+
+.text button {
+  padding: 15px 40px;
+  background: var(--primary);
+  border: none;
+  color: white;
+  font-size: 18px;
+}
+
+/* IMAGE */
+.image img {
+  width: 400px;
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.box1{
+    width: 250px;
+    height: 250px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+.cont{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 70px 0px;
+}
+.chef{
+    padding: 20px 20px;
+}
+.chef h2,p{
+    margin: 0px 5px;
+}
+.box1 span{
+    font-size: 3rem;
+    color: var(--primary);
+}
+.page1{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 60%;
+  position: static;
+}
+.page1 img {
+  width: clamp(150px, 45%, 100%);
+}
+
+.about {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  justify-content: center;
+  margin: 60px auto;
+}
+
+.page1 img:nth-child(1){
+  width: 50%;
+  height: 50%;
+}
+.page1 img:nth-child(2){
+  width: 35%;
+  height: 35%;
+  position: relative;
+  top: 90px;
+}
+.page1 img:nth-child(3){
+  width: 35%;
+  height: 35%;
+  position: relative;
+  left: 80px;
+}
+.page1 img:nth-child(4){
+  width: 50%;
+  height: 50%;
+  position: relative;
+  left: 82px;
+}
+.line{
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.line hr{
+  border: 1px solid orange;
+  width: 50px;
+  height: 0;
+  color: orange;
+}
+.line h2{
+  font-family: "Pacifico", cursive;
+  color: orange;
+  letter-spacing: 3px;
+  font-weight: lighter;
+}
+label{
+  color: orange;
+}
+.page2{ 
+  width: 50%;
+  position: relative;
+  top: 60px;
+}
+.page2 h1{
+  font-size: 2.5rem;
+}
+.page2   p{
+
+  padding: 20px 0px;
+}
+.line1{
+  border: 1px solid orange;
+  width: 5px;
+  height: 60px;
+  background-color: orange;
+}
+.expereince{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.expereince h1{
+  color: orange;
+  font-weight: bolder;
+}
+.years{
+  display: flex;
+  align-items: center;
+}
+.ss{
+  font-weight: 900;
+}
+.page2 button{
+  padding: 20px 50px;
+  background: orange;
+  border: none;
+  color: white;
+  font-size: 18px;
+  margin: 20px 0px;
+}
+.mm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family:"Pacifico", cursive;
+  color: orange;
+}
+.mm p{
+  font-family: "Pacifico", cursive;
+}
+.line2{
+  border: 1px solid orange;
+  width: 50px;
+}
+.food{
+  color: black;
+  margin: 120px 0px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.break{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 5px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  max-width: 500px;
+}
+.label{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.label a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  padding-bottom: 20px;
+}
+
+.label a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: orange;
+  transition: width 0.3s ease;
+}
+
+.label.active a::after {
+  width: 100%;
+}
+
+.food label{
+  font-size: 3rem;
+}
+.chicken-container{
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin:-70px auto;
+  align-items: center;
+  display: none;
+  
+}
+.chicken-container.block{
+  display: flex;
+  transition: .6s ease-in-out;
+}
+.chicken{
+  display: flex;
+  gap: 20px;
+  line-height: 2;
+}
+
+.b hr{
+  width: 100%;
+  min-width: 460px;
+}
+.chicken-container1{
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin:-70px auto;
+  align-items: center;
+  display: none;
+  
+}
+.chicken-container1.block2{
+   display: flex;
+  transition: .6s ease-in-out;
+}
+.s{
+  display: flex;
+  align-items: center;
+  gap: 230px;
+}
+.s p{
+  color: orange;
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+.chicken-container2{
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin:-70px auto;
+  align-items: center;
+  display: none;
+  
+}
+.chicken-container2.block3{
+   display: flex;
+  transition: .6s ease-in-out;
+}
+
+.contact{
+  width: 100%;
+  border: 1px solid black;
+   position: relative;
+  top: 80px;
+  display: flex;
+  margin: auto;
+}
+
+.video {
+  width: 100%;
+  height: 400px;
+  background: url(images/young-african-american-waiter-man-hold-tray-with-burger-bar-restaurant.jpg) center/contain no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video span {
+  position: relative;
+  font-size: 5rem;
+  color: orange;
+  cursor: pointer;
+  background: rgba(255,255,255,.2);
+  padding: 50px;
+  border-radius: 50%;
+}
+.video span::before {
+  content: "";
+  position: absolute;
+  border: 5px solid #e33;
+  border-radius: 50%;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  left: -20px;
+  animation: animate 1.5s linear infinite;
+}
+
+
+.video span::after {
+  content: "";
+  position: absolute;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  top: -20px;
+  right: -20px;
+  bottom: -20px;
+  left: -20px;
+  animation: animate 1.5s linear infinite;
+  animation-delay: .4s;
+}
+
+
+@keyframes animate {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes animated {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* MODAL */
+.yt-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 999;
+}
+
+.yt-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.yt-box {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+}
+
+.yt-box iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 35px;
+  color: #fff;
+  cursor: pointer;
+}
+#mymenu{
+  background: rgb(0, 0, 61);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 90px;
+}
+form{
+  display: grid;
+  gap: 14px;
+}
+input{
+  padding: 0px 20px;
+  width: 550px;
+  height: 55px;
+}
+#select{
+   padding: 0px 20px;
+  width: 550px;
+  height: 55px;
+  cursor: pointer;
+}
+option{
+  position: relative;
+  top: 50px;
+  border-radius: 10px;
+}
+#contact1{
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 100px auto;
+  gap: 30px;
+}
+#map{
+  height: 400px;
+  width: 100%;
+  border-radius: 10px
+}
+#book{
+  padding: 15px 20px;
+  width: 200px;
+  border: none;
+  background: orange;
+  color: white;
+  opacity: 0.7;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 18px;
+}
+#book:hover{
+  opacity: 1;
+}
+.container2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+    width: 100%;
+  max-width: 1200px;
+  margin: 100px auto;
+  /* background: var(--dark); */
+}
+.text1 button{
+  padding: 15px 30px;
+  border: none;
+  background: orange;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+.text1.span{
+  display: none;
+}
+.text1.show{
+  display: block;
+}
+.he{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  top: 50px;
+  line-height: 1.5;
+}
+.footer{
+   background: var(--dark);
+  position: relative;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 15rem;
+  flex-wrap: wrap;
+  color: white;
+}
+.map1{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.map1 label{
+  font-size: 2rem;
+}
+.mon{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.follow{
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+/* MOBILE */
+@media (max-width: 980px) {
+  #menu {
+    display: block;
+  }
+
+  .header-content {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: var(--dark);
+    flex-direction: column;
+    padding: 30px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .header-content.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image img {
+    width: 60%;
+  }
+  .dropdown-content{
+    margin: -30px 80px;
+  }
+}
+@media (max-width:1120px) {
+  .about{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .page1,
+  .page2 {
+    width: 100%;
+  }
+
+  .page1 img {
+    width: 100%;
+  }
+
+  .page2 {
+    top: 0;
+  }
+
+  .page2 h1 {
+    font-size: 1.8rem;
+  }
+
+  .line {
+    justify-content: center;
+  }
+  #contact1{
+    display: grid;
+  }
+  .container2{
+    display: grid;
+  }
+  .imgg img{
+    width: 26rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page1 img {
+    width: 100%;
+  }
+  .page2{
+    margin: 40px 0px;
+  }
+  .page1 img:nth-child(3){
+  width: 35%;
+  height: 30%;
+  position: relative;
+  left: 50px;
+  top: 10px;
+}
+.page1 img:nth-child(4){
+  width: 45%;
+  height: 40%;
+  position: relative;
+  left: 55px;
+  top: 0;
+  border: 1px solid black;
+  margin: 20px 0px;
+}
+}
+@media (max-width:570px) {
+  .page1 img:nth-child(1){
+  width: 45%;
+  height: 40%;
+}
+.page1 img:nth-child(2){
+  width: 35%;
+  height: 30%;
+  position: relative;
+  top: 90px;
+}
+.page1 img:nth-child(3){
+  width: 35%;
+  height: 30%;
+  position: relative;
+  left: 50px;
+  top: 10px;
+}
+.page1 img:nth-child(4){
+  width: 45%;
+  height: 40%;
+  position: relative;
+  left: 55px;
+  top: 40px;
+}
+}
+

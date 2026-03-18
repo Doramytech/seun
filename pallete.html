@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pigmenta</title>
+    <link rel="icon" href="logo2.png">
+    <link rel="stylesheet" href="pallete.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo2.png" width="20px" alt="">
+            <span>Pigmenta</span>
+            </a>
+            
+        </div>
+        <div class="menu-close">
+         <img src="menu-line.svg" id="closes" width="20px" alt="">
+            <button id="btn">&times;</button>
+        </div>
+        <div class="header-content" id="header">
+           <p><a href="iconconverter.html" target="_blank" id="icon">icon converter</a></p> 
+            <p><a href="" id="icon">image converter</a></p>
+            <p><a href="boxshadowgenerator.html" target="_blank" id="icon">Box Shadow</a></p>
+            <p><a href="" id="icon">online tools</a></p>
+        </div> 
+    </div>
+
+    <!-- body text -->
+
+    <div class="body">
+        <h1>Color Palette from Image Generator</h1>
+        <p>Extract beautiful color  palettes from any image with precision. 
+            Upload your photo or use our sample image to discover dominant colors, get HEX codes, and create perfect color schemes for your design projects. Features enhanced 15x zoom magnifier with real-time color display, automatic palette extraction, and advanced keyboard navigation for pixel-perfect color selection.</p>
+    </div>
+
+    <div class="container">
+        <div class="container-body">
+            <div class="image-container">
+                <img src="logo2.png" width="60px" alt="image logo">
+                 <label for="fileInput" class="upload-label">Upload Image</label>
+                <p>Support JPG,PNG</p>
+                <canvas id="canvas"></canvas>
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+        </div>
+        <div class="cont-or">
+            <div class="cont2"></div>
+            <p>OR</p>
+            <p>OR</p>
+            <div class="cont3"></div>
+        </div>
+        <button class="btn" id="btn_generate">Pick Color</button>
+        <div class="color">
+            <label for="">Hex Code:</label>
+            <div class="lines"></div>
+            <p id="colorDisplay"></p>
+        
+        <div class="color-display" id="displayColor"></div>
+        </div>
+        
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="container-content">
+             <img src="logo2.png" width="30px" alt="">
+             <h1>About ColorPaletteFromImage</h1>
+        </div>
+        <div class="teet">
+        <p>Color Palette From Image turns your photos and images 
+            into a color palette instantly. When you add an image you’ll instantly be give hex color codes to copy to use in your designs. Whether you’re a web designer or illustrator having color palettes of images can be useful.</p>
+        <p>Discover the perfect colors for your next project with our intuitive color palette generator. Whether you're a designer, artist, or simply looking for inspiration, our tool helps you create stunning color combinations that elevate your work.</p>
+        </div>
+        <div class="teets">
+            <h2>How it works</h2>
+            <ol>
+                <li>Upload an image or use our color picker to select a color.</li>
+                <li>Our algorithm generates a palette of complementary colors based on your selection.</li>
+                <li>Explore and customize your palette to fit your needs.</li>
+            </ol>
+
+            <ul>
+                <h2>More Features Comming Soon</h2>
+                <li>Free Blogging Tools</li>
+                <li>Word text color pallete</li>
+                <li>Code To Image</li>
+                <li>Image Caption Generator</li>
+                <li>SunriseSunset.io</li>
+                <li>Online EXIF Viewer</li>
+                <li>Box Shadow</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>powered by Doramytech</p>
+    </div>
+    
+
+
+    <script src="pallete.html"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+       --primary: #2F80ED;       
+      --accent: #10B981;         
+      --bg: #F9FAFB;         
+      --text: #1F2937;            
+      --white: #ffffff;
+      
+}
+body{
+    background: var(--bg);
+}
+ul img{
+    width: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: 15px 0px;
+}
+li{
+    display: flex;
+    gap: 15px;
+    line-height: 2;
+}
+.text{
+    position: relative;
+    top: 50px;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0px 0px;
+    /* height: 100%; */
+    justify-content: space-around;
+}
+.slide-in {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideIn 0.8s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.bgc{
+    background: #EEF4FF;
+    margin: 0px 0px;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    height: 750px;
+    border-radius: 10px;
+}
+ul{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+/* h2{
+    margin: -13px 0px;
+} */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+#btn,
+#signup {
+  width: 100%;
+  max-width: 350px;
+  height: 50px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  outline-color: var(--primary);
+  box-sizing: border-box;
+  
+}
+button,
+.btn5,
+.btn3,
+#signup {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+button:hover,
+.btn5:hover,
+.btn3:hover,
+#signup:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+    #loadingOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 8px solid #ccc;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+span{
+    position: relative;
+    right: 35px;
+    top: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+h4{
+    font-weight: lighter;
+}
+.login{
+    position: relative;
+    top: 90px;
+    width: 100%;
+    max-width: 400px;
+}
+.btn5{
+    width: 350px;
+    height: 60px;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnn{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#signup{
+    height: 60px;
+    border: none;
+    background: #10B981;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    width: 350px;
+}
+
+#myp, #myp1, #myp2{
+    color: red;
+}
+/* #btn:disabled{
+    background-color: #ccc;
+    cursor: not-allowed;
+} */
+
+.success {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.success.show {
+  opacity: 1;
+  transform: scale(1);
+  animation: popIn 0.5s ease forwards;
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.capture{
+    text-align: center;
+    width: 80%;
+    margin:100px auto;
+    line-height: 2;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.btn5 a{
+    color: white;
+    text-decoration: none;
+}
+.capture h1{
+    font-size: 3rem;
+}
+.attendance{
+    margin: 80px auto;
+    text-align: center;
+    width: 80%;
+}
+.attendance p{
+    background-color: #EEF4FF;
+    width: 270px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin: auto;
+    color: blue;
+    font-weight: 800;
+}
+.attendance h1{
+    font-size: 4rem;
+}
+.attendance h4{
+    font-size: 18px;
+    line-height: 2;
+}
+.btn3{
+    width: 350px;
+    height: 60px;
+    background-color: #10B981;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+}
+.imm{
+    background-image: url(calendar-schedule-list.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 400px;
+}
+/* .immg{
+    background-image: url(zp-geofencing1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 700px;
+} */
+
+#signup a{
+    text-decoration: none;
+    color: white;
+}
+ footer{
+    width: 100%;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0px;
+ }
+
+@media (max-width:1115px) {
+    .bgc{
+        height: 1300px;
+    }
+    .login{
+        position: relative;
+        top: 10px;
+    }
+   .text{
+    position: relative;
+    top: 20px;
+   }
+   .capture{
+    display: grid;
+   }
+   .immg img{
+    width: 100%;
+    padding: 10px 0px;
+    margin: auto;
+   }
+}
+@media (max-width:550px) {
+    .bgc{
+        height: 1400px;
+    }
+    .text-content h1{
+        font-size: 1.5rem;
+    }
+    .text-content{
+        width: 100%;
+    }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  #btn,
+  #signup {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+  .container{
+    flex-direction: column;
+  }
+}
+@media (max-width:360px) {
+.text{
+    width: 100%;
+    font-size: 1em;
+}
+svg {
+  width: 100%;
+  height: auto;
+  max-width: 300px; /* Optional: limit max size */
+  display: block;
+}
+
+}
+@media (max-width:340px) {
+    .bgc{
+        height:100% ;
+    }
+    .attendance h1{
+        font-size: 2rem;
+    }
+    .capture h1{
+        font-size: 2rem;
+    }
+    .immg img{
+        width: 250px;
+    }
+    .attendance p{
+        width: 100%;
+    }
+}
+@media (max-width:468px) {
+    .capture{
+        border: 1px solid transparent;
+        margin: auto;
+        position: relative;
+        right: 20px;
+
+    }
+    .immg img{
+        width: 260px;
+    }
+    .attendance{
+        position: relative;
+        right: 20px;
+        border: 1px solid transparent;
+    }
+     .btn3 {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width:290px) {
+    .capture{
+        font-size: 1.5rem;
+        box-sizing: content-box;
+    }
+    .capture p{
+        font-size: 16px;
+    }
+    .btn5{
+        width: 200px;
+    }
+    .immg img{
+        width: 200px;
+    }
+}

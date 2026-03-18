@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+                              <!-- remixicon link -->
+    <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <section id="navbar">
+
+    <div class="header">
+        <div class="logo">
+            <img src="ChatGPT Image Feb 16, 2026, 03_00_01 PM.png" width="140px" alt="">
+        </div>
+
+         
+        <ul class="headerContent">
+            <li>
+                <a href="home.html">Home</a>
+            </li>
+            <li>
+                <a href="#category">Categories</a>
+            </li>
+            <li>
+                <a href="#product">Shop</a>
+            </li>
+            <li>
+                <a href="">Why Us</a>
+            </li>
+            <li>
+                <a href="">Contact</a>
+            </li>
+           
+            
+
+             <!-- <div class="drop">
+                <button class="btn"> <i class="ri-user-line"></i> Account</button>
+                <div class="dropdown-content">
+                    <button>sign in</button>
+                    <h4><i class="ri-user-line"></i> My Account</h4>
+                    <h4><i class="ri-shopping-bag-3-line"></i> Orders</h4>
+                    <h4><i class="ri-heart-line"></i> Whishlist</h4>
+                </div>
+            </div> -->
+
+            <div class="search">
+                <input type="text" placeholder="Search product" id="searchBar">
+                <label for="" class="searchIcon"><i class="ri-search-line"></i></label>
+            </div>
+            
+
+            <!-- <h3><a href=""><span><i class="ri-shopping-cart-line"></i></span> Cart</a></h3> -->
+            
+        </ul>
+        <div class="search-bar" >
+                <input type="text" placeholder="Search product" id="searchBars">
+                <label class="search-submit" style="cursor: pointer;"><i class="ri-search-line" id="icon"></i>
+                </label>
+            </div>
+
+        <div class="menu" id="menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+    </section>
+
+
+    <section class="body">
+        <div class="hero">
+            <div class="hero-collection">
+                <div class="bb">
+                    <p>New collection</p>
+                </div>
+                <h1>Elevate Your Lifestyle</h1>
+                <p class="text">Discover curated collections of hair accessories, fashion, kitchen 
+                essentials, and home décor that transform everyday moments into extraordinary experiences.</p>
+                <div class="btnn">
+                    <a href="" class="btn1">Shop Now</a>
+                    <a href="" class="btn2">Explore</a>
+                </div>
+            </div>
+
+            <div class="image">
+                <div class="premium">
+                    <div class="star">
+                        <div class="h1">✨</div>
+                         <div class="dd">
+                        <h3>Premium Quality</h3>
+                        <p>Handpicked items</p>
+                    </div>
+                    </div>
+                   
+                </div>
+
+
+
+                <div class="free">
+                    <div class="bus">
+                        <div class="h1">🚚</div>
+                         <div class="dd">
+                        <h4>Free Shipping</h4>
+                        <p>On orders over $50</p>
+                    </div>
+                    </div>
+                   
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- <section class="category" id="category">
+
+        <div class="shop-text">
+            <h1>Shop by Categorys</h1>
+            <p>Explore our carefully curated collections</p>
+        </div>
+        <div class="shop-container">
+                    <div class="hair" onclick="window.location.href='#product'" style="cursor: pointer;">
+                <h1>Hair Accessories</h1>
+                <div class="shpp">
+                    <h3>Hair Accessories</h3>
+                    <a href="#product" class="shop-btn">Shop Now</a>
+                </div>
+            </div>
+            
+
+              <div class="cloth" onclick="window.location.href = '#product'" style="cursor: pointer;">
+                <h1>Clothing</h1>
+                <div class="shpp">
+                    <h3>Clothing</h3>
+                    <a href="#product" class="shop-btn">Shop Now</a>
+                </div>
+            </div>
+
+             <div class="kitchen" onclick="window.location.href = '#product'" style="cursor: pointer;">
+                <h1>Kitchen Collection</h1>
+    <div class="shop-content">
+        <h3>Kitchen Collection</h3>
+        <a href="#product" class="shop-btn">Shop Now</a>
+    </div>
+</div>
+
+
+            <div class="home" onclick="window.location.href = '#product'" style="cursor: pointer;">
+                <h1>Home Decoration</h1>
+                <div class="shopp">
+                    <h3>home decoration</h3>
+                    <a href="#product" class="shop-btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+    <section class="product" id="product">
+        <div class="data">
+            <div class="top">
+                <h1>Featured Products</h1>
+                <p>Handpicked favorites from our collection</p>
+
+                 <div class="category-filters">
+                <button class="filter-btn active" onclick="filterByCategory('all')">All</button>
+                <button class="filter-btn" onclick="filterByCategory('hair')">Hair</button>
+                <button class="filter-btn" onclick="filterByCategory('electronics')">Electronics</button>
+                <button class="filter-btn" onclick="filterByCategory('clothing')">Clothing</button>
+                <button class="filter-btn" onclick="filterByCategory('decoration')">Decoration</button>
+                <button class="filter-btn" onclick="filterByCategory('kitchen')">Kitchen</button>
+                <button class="filter-btn" onclick="filterByCategory('furniture')">Furniture</button>
+            </div>
+        </div>
+            </div>
+          
+            <div class="body1">
+                <div id="root"></div>
+            </div>
+        </div>
+        
+    </section>
+    <script src="home.js"></script>
+</body>
+</html>

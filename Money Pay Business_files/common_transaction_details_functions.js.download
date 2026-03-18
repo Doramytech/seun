@@ -1,0 +1,258 @@
+function  loadAEPSTransactionDetails(aepsID){
+	$.ajax({
+		url: SITEURL + "user/our_services/getAEPSTransactionDetails",
+		type: 'POST',
+		data : {aepsId : aepsID, _csrf: $('input[name="_csrf"]').val()},
+		beforeSend : function(){showBlockUI()},
+		success: function(response) {
+			$.unblockUI();
+			jsArray = $.parseJSON(response);
+			if(jsArray.status.toLowerCase() == "success")
+			{
+				txnData = jsArray.data;
+				$(".lblAEPSTransactionType").text(txnData.AepsMode);
+				
+				$(".lblAEPSResultTransactionID").text(txnData.transactionID);
+				$(".lblAEPSResultAEPSMode").text(txnData.AepsMode);
+				$(".lblAEPSResultDateTime").text(txnData.DateTime);
+				$(".lblAEPSResultBankName").text(txnData.BankName);
+				$(".lblAEPSResultBankRRN").text(txnData.rrnNo);
+				$(".lblAEPSResultTranasctionStatus").text(txnData.status);
+				$(".lblAEPSResultTransactionAmount").text(txnData.txnAmount);
+				$(".lblAEPSResultACBalance").text(txnData.accountBalance);
+				$(".lblAEPSResultResponseMessage").text(txnData.responseMessage);
+				$(".lblAEPSResultCustomerMobileNo").text(txnData.customerMobile);
+				$(".lblAEPSResultCustomerAdhaarNo").text(txnData.adhaarNumber);
+				$(".lblAEPSResultAgentID").text(txnData.agentId);
+				$(".lblAEPSResultAgentName").text(txnData.agentName);
+				$(".lblAEPSResultAgentLocation").text(txnData.agentLocation);
+				$(".imgAEPSResultPoweredBy").attr('src', "/external/backend/images/services/ic_" + txnData.providerName + ".png");
+				
+				if(txnData.AepsMode == "Mini Statement")
+				{
+					$.each(txnData.statement, function(k,v){
+						$(".listMiniStatement tbody").append("<tr><td>Date : </td><td>"+ v.Date +"</td></tr>");
+						$(".listMiniStatement tbody").append("<tr><td>Txn Type : </td><td>"+ v.TxnType +"</td></tr>");
+						$(".listMiniStatement tbody").append("<tr><td>Amount : </td><td>"+ v.Amount +"</td></tr>");
+						$(".listMiniStatement tbody").append("<tr><td>Narration : </td><td>"+ v.Remark +"</td></tr>");
+						$(".listMiniStatement tbody").append("<tr><td colspan='2'>&nbsp;</td></tr>");
+						$(".listResultMiniStatement").show();
+					});				
+				} else {
+					$(".listResultMiniStatement").hide();
+				}
+				
+				$("#aepsTranasctionDetailsPopup").modal("show");	
+			} else {
+				showResponse(response);
+			}			
+			isProcessing = false;
+		}, 
+		error: function(xhr, error, thrown){
+			$.unblockUI();
+			if(xhr.status == "401") {
+            	window.location.href = SITEURL + CONTROLLERNAME;
+            }else {
+            	swal("Error!!!", xhr.status +":"+ xhr.statusText, "error");
+			}
+			isProcessing = false;
+		}
+	});
+}
+
+function  loadMATMTransactionDetails(matmId){
+	$.ajax({
+		url: SITEURL + "user/our_services/getMATMTransactionDetails",
+		type: 'POST',
+		data : {matmId : matmId, _csrf: $('input[name="_csrf"]').val()},
+		beforeSend : function(){showBlockUI()},
+		success: function(response) {
+			$.unblockUI();
+			jsArray = $.parseJSON(response);
+			if(jsArray.status.toLowerCase() == "success")
+			{
+				txnData = jsArray.data;
+				$(".lblMATMTransactionType").text(txnData.MATMMode);
+				
+				$(".lblMATMResultTransactionID").text(txnData.transactionID);
+				$(".lblMATMResultMATMMode").text(txnData.MATMMode);
+				$(".lblMATMResultDateTime").text(txnData.DateTime);
+				$(".lblMATMResultBankName").text(txnData.BankName);
+				$(".lblMATMResultBankRRN").text(txnData.rrnNo);
+				$(".lblMATMResultTranasctionStatus").text(txnData.status);
+				$(".lblMATMResultTransactionAmount").text(txnData.txnAmount);
+				$(".lblMATMResultACBalance").text(txnData.accountBalance);
+				$(".lblMATMResultResponseMessage").text(txnData.responseMessage);
+				$(".lblMATMResultCustomerMobileNo").text(txnData.customerMobile);
+				$(".lblMATMResultCustomerAdhaarNo").text(txnData.cardNumber);
+				$(".lblMATMResultAgentID").text(txnData.agentId);
+				$(".lblMATMResultAgentName").text(txnData.agentName);
+				$(".lblMATMResultAgentLocation").text(txnData.agentLocation);
+				$("#matmTranasctionDetailsPopup").modal("show");	
+			} else {
+				showResponse(response);
+			}			
+			isProcessing = false;
+		}, 
+		error: function(xhr, error, thrown){
+			$.unblockUI();
+			if(xhr.status == "401") {
+            	window.location.href = SITEURL + CONTROLLERNAME;
+            }else {
+            	swal("Error!!!", xhr.status +":"+ xhr.statusText, "error");
+			}
+			isProcessing = false;
+		}
+	});
+}
+
+
+function  loadRechargeTransactionDetails(rechargeID){
+	$.ajax({
+		url: SITEURL + "user/our_services/getRechargeTransactionDetails",
+		type: 'POST',
+		data : {rechargeId : rechargeID, _csrf: $('input[name="_csrf"]').val()},
+		beforeSend : function(){showBlockUI()},
+		success: function(response) {
+			$.unblockUI();
+			jsArray = $.parseJSON(response);
+			if(jsArray.status.toLowerCase() == "success")
+			{
+				txnData = jsArray.data;
+				$(".lblRechargeTransactionType").text(txnData.ServiceType);
+				$(".rechargeReceiptTable tbody").empty();
+				$(".rechargeReceiptTable tbody").append("<tr><td colspan='2'><b>Transaction Details</b></td></tr>");
+				
+				$.each(txnData.Details, function(k,v){
+					$(".rechargeReceiptTable tbody").append("<tr><td>"+ v.key +"</td><td>"+ v.value +"</td></tr>");
+				});				
+				
+				$("#rechargeTranasctionDetailsPopup").modal("show");	
+			} else {
+				showResponse(response);
+			}			
+			isProcessing = false;
+		}, 
+		error: function(xhr, error, thrown){
+			$.unblockUI();
+			if(xhr.status == "401") {
+            	window.location.href = SITEURL + CONTROLLERNAME;
+            }else {
+            	swal("Error!!!", xhr.status +":"+ xhr.statusText, "error");
+			}
+			isProcessing = false;
+		}
+	});
+}
+
+$(document).on("click", ".btnAEPSPrint", function(){
+	//var divToPrint=document.getElementById('DivIdToPrint');
+	var newWin=window.open('','Print-Window');
+	newWin.document.open();
+	newWin.document.write('<html><body onload="window.print(); window.close()">'+ $("#aepsTranasctionDetailsPopup .modal-body").html()+'</body></html>');
+	newWin.document.close();
+});
+
+$(document).on("click", ".btnMATMPrint", function(){
+	var newWin=window.open('','Print-Window');
+	newWin.document.open();
+	newWin.document.write('<html><body onload="window.print(); window.close()">'+ $("#matmTranasctionDetailsPopup .modal-body").html()+'</body></html>');
+	newWin.document.close();
+});
+
+$(document).on("click", ".btnDMTPrint", function(){
+	var newWin=window.open('','Print-Window');
+	newWin.document.open();
+	newWin.document.write('<html><body onload="window.print(); window.close()">'+ $("#dmtTranasctionDetailsPopup .modal-body").html()+'</body></html>');
+	newWin.document.close();
+});
+
+$(document).on("click", ".btnRechargeReceiptPrint", function(){
+	var newWin=window.open('','Print-Window');
+	newWin.document.open();
+	newWin.document.write('<html><body onload="window.print(); window.close()">'+ $("#rechargeTranasctionDetailsPopup .modal-body").html()+'</body></html>');
+	newWin.document.close();
+});
+
+function  loadDMTTransactionDetails(dmtId){
+	$.ajax({
+		url: SITEURL + "user/our_services/getDMTTransactionDetails",
+		type: 'POST',
+		data : {dmtId : dmtId, _csrf: $('input[name="_csrf"]').val()},
+		beforeSend : function(){showBlockUI()},
+		success: function(response) {
+			$.unblockUI();
+			jsArray = $.parseJSON(response);
+			if(jsArray.status.toLowerCase() == "success")
+			{
+				txnData = jsArray.data;
+				$(".lblDMTResultSenderName").text(txnData.SenderName);
+				$(".lblDMTResultSenderMobileNo").text(txnData.SenderMobileNo);
+				$(".lblDMTResultBeneficiaryName").text(txnData.BeneficiaryName);
+				$(".lblDMTResultBeneficiaryACNo").text(txnData.BeneficiaryAccountNo);
+				$(".lblDMTResultBeneficiaryBankName").text(txnData.BeneficiaryBankName);
+				$(".lblDMTResultTransactionAmount").text(txnData.Amount);
+				$(".lblDMTResultTransactionFee").text(txnData.Surcharge);
+				$(".lblDMTResultTransactionTotalAmount").text(txnData.TotalAmount);
+				$(".lblDMTResultDateTime").text(txnData.DateTime);
+				$(".lblDMTResultBankRRN").text(txnData.UTRNo);
+				$(".lblDMTResultTranasctionStatus").text(txnData.Status);				
+				$(".lblDMTResultAgentID").text(txnData.AgentId);
+				$(".lblDMTTransactionType").text(txnData.TransactionType);
+				$(".lblDMTResultAgentName").text(txnData.AgentName);
+				$(".lblDMTResultAgentLocation").text(txnData.AgentLocation);
+				
+				$("#dmtTranasctionDetailsPopup").modal("show");	
+			} else {
+				showResponse(response);
+			}			
+			isProcessing = false;
+		}, 
+		error: function(xhr, error, thrown){
+			$.unblockUI();
+			if(xhr.status == "401") {
+            	window.location.href = SITEURL + CONTROLLERNAME;
+            }else {
+            	swal("Error!!!", xhr.status +":"+ xhr.statusText, "error");
+			}
+			isProcessing = false;
+		}
+	});
+}
+
+function getAdminNotifications()
+{
+	if(typeof(startDate) != "undefined")
+	{
+		$.ajax({
+			url: SITEURL + "resources/getAdminNotifications",
+			type: 'POST',
+			data : {lastTime : startDate, _csrf: $('input[name="_csrf"]').val()},
+			success: function(response) {
+				jsArray = $.parseJSON(response);
+				if(jsArray.status != "success") {
+					showResponse(response);
+				} else {
+					$.each (jsArray.data, function(k,v) {
+						$(".notification" + k).hide();
+						if(v > 0) {
+							$(".notification" + k + " span.badge").text(v);
+							$(".notification" + k).show();
+							
+						}
+						
+					});
+				}
+				setTimeout(function(){
+			    	getAdminNotifications();
+			    }, 30000);
+			}
+		});
+	}
+}
+
+$(function() {
+    setTimeout(function(){
+    	getAdminNotifications();
+    }, 30000);
+});
